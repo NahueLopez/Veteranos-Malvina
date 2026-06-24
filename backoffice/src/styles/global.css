@@ -1,0 +1,101 @@
+@import "./theme.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  background: var(--fondo-claro);
+  color: var(--texto);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 0.5em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 1em; }
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Botones base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius);
+  border: var(--borde);
+  background: var(--blanco);
+  color: var(--texto);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+}
+
+.btn:hover { background: var(--fondo-claro); }
+
+.btnPrimario {
+  background: var(--azul-marino);
+  border-color: var(--azul-marino);
+  color: var(--blanco-texto);
+}
+
+.btnPrimario:hover { background: var(--azul-oscuro); }
+
+.btnPeligro {
+  border-color: rgba(155, 34, 38, 0.4);
+  color: var(--danger);
+  background: var(--blanco);
+}
+
+.btnPeligro:hover { background: rgba(155, 34, 38, 0.06); }
+
+.btnSm { padding: 0.35rem 0.7rem; font-size: 0.82rem; }
+
+/* Inputs */
+.field { margin-bottom: 1rem; }
+
+.field label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+  margin-bottom: 0.35rem;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: var(--borde);
+  border-radius: var(--radius);
+  background: var(--blanco);
+  color: var(--texto);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--celeste-patrio);
+  box-shadow: 0 0 0 3px rgba(117, 170, 219, 0.2);
+}
+
+.field textarea { min-height: 90px; resize: vertical; }

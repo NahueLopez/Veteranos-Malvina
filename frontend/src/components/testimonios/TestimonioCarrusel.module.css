@@ -1,0 +1,118 @@
+.contenedor {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "prev cita next" "puntos puntos puntos";
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.nav {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--blanco-texto);
+  background: rgba(117, 170, 219, 0.12);
+  border: var(--borde-fino-claro);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.nav:hover {
+  background: var(--celeste-patrio);
+  color: var(--azul-marino);
+}
+.nav:active {
+  transform: scale(0.92);
+}
+
+.cita {
+  grid-area: cita;
+  position: relative;
+  margin: 0;
+  padding: 1rem clamp(1rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.comilla {
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--celeste-patrio);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.texto {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.15rem, 2.6vw, 1.6rem);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.autor {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-align: left;
+}
+.autor strong {
+  display: block;
+  font-size: 1rem;
+}
+.autor small {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.iniciales {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(117, 170, 219, 0.18);
+  color: var(--celeste-patrio);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.puntos {
+  grid-area: puntos;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.punto {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--celeste-patrio);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.puntoActivo {
+  background: var(--celeste-patrio);
+}
+
+@media (max-width: 640px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+    grid-template-areas: "cita" "puntos" "prev" "next";
+  }
+  .nav {
+    display: none;
+  }
+}

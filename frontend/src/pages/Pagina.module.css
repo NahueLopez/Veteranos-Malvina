@@ -1,0 +1,517 @@
+.head {
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+}
+
+.headInner {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+.kicker {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--celeste-patrio);
+  margin: 0 0 0.5rem;
+}
+
+.titulo {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  margin: 0 0 0.5rem;
+}
+
+.intro {
+  opacity: 0.82;
+  max-width: 640px;
+  margin: 0;
+}
+
+.body {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+/* Aire arriba para que el badge del selector de variante no tape el contenido,
+   y flechas empujadas al margen para que no molesten. */
+.timelinePicker {
+  padding-top: 3.25rem;
+  --picker-flecha-inset: clamp(-2.5rem, -2vw, -0.5rem);
+}
+
+@media (max-width: 560px) {
+  .timelinePicker {
+    --picker-flecha-inset: 0.25rem;
+  }
+}
+
+/* Galería: aire arriba para el badge, pero flechas sobre el contenido
+   (inset positivo por defecto) para que se vean como un carrusel. */
+.galeriaPicker {
+  padding-top: 3.25rem;
+}
+
+/* Grid de veteranos */
+.veteranosGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Grid de galería completa */
+.galeriaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.galeriaItem {
+  aspect-ratio: 4 / 3;
+  background: var(--azul-marino);
+  border: var(--borde-fino);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  place-items: end start;
+  color: var(--blanco-texto);
+}
+
+.galeriaItem img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.galeriaCaption {
+  position: relative;
+  z-index: 1;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.8rem;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(4, 17, 31, 0.85));
+}
+
+/* Lista de noticias */
+.noticiasLista {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 760px;
+}
+
+.noticiaItem {
+  background: var(--blanco);
+  border: var(--borde-fino);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--sombra-sutil);
+}
+
+.tipo {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius);
+  margin-bottom: 0.6rem;
+  background: rgba(117, 170, 219, 0.18);
+  color: var(--azul-marino);
+}
+
+.tipoEvento {
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+}
+
+.fecha {
+  font-size: 0.78rem;
+  opacity: 0.55;
+  margin: 0.5rem 0 0;
+}
+
+@media (max-width: 880px) {
+  .veteranosGrid,
+  .galeriaGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .veteranosGrid,
+  .galeriaGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   HERO EDITORIAL / DOCUMENTAL (Historia)
+   Texto a la izquierda · mapa de las islas + "1982" gigante a la derecha
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: min(80vh, 680px);
+  display: grid;
+  align-items: center;
+  background:
+    radial-gradient(90% 120% at 88% 12%, rgba(117, 170, 219, 0.2) 0%, transparent 48%),
+    linear-gradient(155deg, var(--azul-oscuro) 0%, var(--azul-muy-oscuro) 72%);
+  color: var(--blanco-texto);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Emblema de fondo: "1982" + contorno de las islas compuestos sobre el
+   mismo centro, con un desvanecido común hacia la izquierda (el texto). */
+.heroArte {
+  position: absolute;
+  top: 50%;
+  right: clamp(-5rem, -1vw, 1rem);
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  -webkit-mask-image: linear-gradient(to left, #000 50%, transparent 96%);
+  mask-image: linear-gradient(to left, #000 50%, transparent 96%);
+}
+
+/* Ambos elementos comparten la misma celda → quedan concéntricos */
+.heroAno,
+.heroMapa {
+  grid-area: 1 / 1;
+  user-select: none;
+}
+
+.heroAno {
+  font-size: clamp(10rem, 30vw, 28rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: 0.02em;
+  color: rgba(117, 170, 219, 0.1);
+}
+
+/* Contorno de las islas centrado sobre el número. El screen aclara el PNG y
+   el mask radial desvanece los bordes para que el cuadrado del fondo no se
+   note y el trazo se funda con el "1982". */
+.heroMapa {
+  width: clamp(300px, 40vw, 540px);
+  opacity: 0.7;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 45px rgba(117, 170, 219, 0.35));
+  -webkit-mask-image: radial-gradient(closest-side, #000 60%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 60%, transparent 100%);
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(4rem, 10vw, 7rem);
+}
+
+.heroTexto {
+  max-width: 620px;
+}
+
+/* Fechas tipo etiqueta de archivo */
+.heroFechas {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: clamp(0.72rem, 1.6vw, 0.85rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--celeste-patrio);
+  margin: 0 0 1.5rem;
+}
+.heroFechasGuion {
+  width: clamp(18px, 4vw, 36px);
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.heroTitulo {
+  font-size: clamp(2.6rem, 8vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  margin: 0 0 1.5rem;
+}
+
+.heroIntro {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.7;
+  opacity: 0.82;
+  max-width: 520px;
+  margin: 0 0 2.5rem;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--celeste-patrio);
+}
+
+/* Entrada escalonada del texto */
+.reveal > * {
+  opacity: 0;
+  animation: histRiseIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.reveal > *:nth-child(1) { animation-delay: 0.1s; }
+.reveal > *:nth-child(2) { animation-delay: 0.28s; }
+.reveal > *:nth-child(3) { animation-delay: 0.46s; }
+.reveal > *:nth-child(4) { animation-delay: 0.64s; }
+
+@keyframes histRiseIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal > * { opacity: 1; animation: none; }
+}
+
+@media (max-width: 560px) {
+  .heroMapa { opacity: 0.12; }
+  .heroCifras { gap: 1.25rem 2rem; }
+}
+
+/* ============================================================
+   SECCIONES DE LA PÁGINA HISTORIA
+   ============================================================ */
+.section {
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+}
+
+.sectionClara {
+  background: var(--fondo-claro);
+}
+
+.sectionOscura {
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+}
+
+.sectionTitulo {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin: 0 0 0.75rem;
+}
+
+.sectionIntro {
+  max-width: 640px;
+  opacity: 0.82;
+  margin: 0 0 2.5rem;
+}
+
+/* ----- Prosa (Legado) ----- */
+.prosa {
+  max-width: 680px;
+}
+
+.prosa p {
+  margin: 0 0 1rem;
+  line-height: 1.65;
+}
+
+.prosa p:last-child {
+  margin-bottom: 0;
+}
+
+.prosa strong {
+  color: var(--azul-marino);
+  font-weight: 700;
+}
+
+/* Sobre fondo oscuro (cierre del Legado) el destacado va en celeste */
+.sectionOscura .prosa strong {
+  color: var(--celeste-patrio);
+}
+
+/* ----- Relato detallado: long-read editorial con línea de tiempo vertical --- */
+.relato {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 920px;
+}
+
+.relatoItem {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-block: clamp(2rem, 4vw, 2.75rem);
+  position: relative;
+}
+
+/* Línea vertical + nodo que conecta los hitos */
+.relatoItem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 190px; /* borde entre la columna de fecha y el cuerpo */
+  width: 2px;
+  background: rgba(10, 34, 64, 0.12);
+}
+
+.relatoItem::after {
+  content: "";
+  position: absolute;
+  top: clamp(2.35rem, 4vw, 3.1rem);
+  left: 190px;
+  width: 13px;
+  height: 13px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: var(--celeste-patrio);
+  border: 3px solid var(--fondo-claro);
+  box-shadow: 0 0 0 1px rgba(10, 34, 64, 0.12);
+}
+
+.relatoItem:first-child::before {
+  top: clamp(2.35rem, 4vw, 3.1rem);
+}
+
+.relatoItem:last-child::before {
+  bottom: auto;
+  height: clamp(2.35rem, 4vw, 3.1rem);
+}
+
+.relatoAside {
+  text-align: right;
+  padding-right: clamp(1.25rem, 3vw, 2rem);
+}
+
+.relatoFecha {
+  display: block;
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  font-weight: 800;
+  color: var(--azul-marino);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.relatoEtiqueta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--celeste-patrio);
+}
+
+.relatoCuerpo {
+  padding-left: clamp(1.25rem, 3vw, 2rem);
+}
+
+.relatoTitulo {
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  color: var(--azul-marino);
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+}
+
+.relatoCuerpo p {
+  margin: 0 0 0.85rem;
+  line-height: 1.7;
+}
+
+.relatoCuerpo p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .relatoItem {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    padding-left: 1.5rem;
+  }
+  /* Línea y nodo se van al borde izquierdo en mobile */
+  .relatoItem::before,
+  .relatoItem:first-child::before,
+  .relatoItem:last-child::before {
+    left: 4px;
+  }
+  .relatoItem::after {
+    left: 4px;
+    top: 0.5rem;
+  }
+  .relatoAside {
+    text-align: left;
+    padding-right: 0;
+  }
+  .relatoCuerpo {
+    padding-left: 0;
+  }
+}
+
+/* ----- Línea de tiempo: textura papel + marca de agua "1982" ----- */
+.sectionTimeline {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--fondo-claro);
+  background-image: radial-gradient(
+    rgba(10, 34, 64, 0.07) 1px,
+    transparent 1.4px
+  );
+  background-size: 22px 22px;
+}
+
+.sectionTimeline::before {
+  content: "";
+  position: absolute;
+  top: -25%;
+  right: -10%;
+  width: 55vw;
+  max-width: 720px;
+  aspect-ratio: 1;
+  background: radial-gradient(
+    circle,
+    rgba(117, 170, 219, 0.28) 0%,
+    rgba(117, 170, 219, 0) 65%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sectionTimeline :global(.container) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ----- Cita destacada ----- */
+.cita {
+  background: var(--celeste-patrio);
+  color: var(--azul-marino);
+}
+
+.citaInner {
+  padding-block: clamp(3rem, 7vw, 5rem);
+  text-align: center;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.citaTexto {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 0 1.25rem;
+}
+
+.citaAutor {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .prosaLayout {
+    grid-template-columns: 1fr;
+  }
+}

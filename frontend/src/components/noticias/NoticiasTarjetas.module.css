@@ -1,0 +1,104 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.card {
+  position: relative;
+  background: var(--blanco);
+  border: var(--borde-fino);
+  border-top: 3px solid var(--celeste-patrio);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--sombra-sutil);
+  color: var(--azul-marino);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardEvento {
+  border-top-color: var(--azul-marino);
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+}
+
+.etiqueta,
+.etiquetaEvento {
+  display: inline-block;
+  width: fit-content;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  color: var(--celeste-patrio);
+}
+
+.etiquetaEvento {
+  color: var(--celeste-patrio);
+}
+
+.sello {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 50px;
+  text-align: center;
+  background: rgba(117, 170, 219, 0.18);
+  border-radius: var(--radius);
+  padding: 0.35rem;
+}
+
+.selloDia {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--celeste-patrio);
+  line-height: 1;
+}
+
+.selloMes {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.75;
+}
+
+.titulo {
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+  color: inherit;
+}
+
+.resumen {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0 0 0.9rem;
+  flex-grow: 1;
+}
+
+.fecha {
+  font-size: 0.76rem;
+  opacity: 0.55;
+  margin: 0;
+}
+
+.meta {
+  font-size: 0.82rem;
+  opacity: 0.75;
+  margin: 0;
+}
+
+@media (max-width: 880px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

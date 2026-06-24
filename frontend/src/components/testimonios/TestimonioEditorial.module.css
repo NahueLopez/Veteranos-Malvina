@@ -1,0 +1,66 @@
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.bloque {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+.invertido {
+  grid-template-columns: 1fr 180px;
+}
+.invertido .retrato {
+  order: 2;
+}
+
+.retrato {
+  height: 180px;
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+}
+
+.iniciales {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--blanco);
+  opacity: 0.85;
+}
+
+.texto {
+  margin: 0 0 1rem;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.firma {
+  margin: 0;
+  border-top: var(--borde-fino-claro);
+  padding-top: 0.75rem;
+}
+.firma strong {
+  display: block;
+  font-size: 1rem;
+}
+.firma span {
+  font-size: 0.82rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 720px) {
+  .bloque,
+  .invertido {
+    grid-template-columns: 1fr;
+  }
+  .invertido .retrato {
+    order: 0;
+  }
+  .retrato {
+    height: 120px;
+  }
+}

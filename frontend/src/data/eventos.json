@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "titulo": "Acto central — Día del Veterano",
+    "descripcion": "Ceremonia conmemorativa con izamiento de bandera y guardia de honor.",
+    "fechaEvento": "2026-04-02",
+    "hora": "10:00",
+    "lugar": "Plaza de los Héroes, Mar del Plata",
+    "publicado": true
+  },
+  {
+    "id": 2,
+    "titulo": "Inauguración muestra \"Rostros de Malvinas\"",
+    "descripcion": "Apertura de la muestra fotográfica con material inédito de los veteranos.",
+    "fechaEvento": "2026-04-12",
+    "hora": "18:30",
+    "lugar": "Sede del Centro de Veteranos",
+    "publicado": true
+  },
+  {
+    "id": 3,
+    "titulo": "Vigilia por los caídos",
+    "descripcion": "Vigilia nocturna en homenaje a los 649 caídos en la guerra.",
+    "fechaEvento": "2026-06-13",
+    "hora": "20:00",
+    "lugar": "Monumento a los Caídos, costanera",
+    "publicado": true
+  }
+]

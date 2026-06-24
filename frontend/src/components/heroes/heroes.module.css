@@ -1,0 +1,492 @@
+/* ============================================================
+   Variantes de HERO — Centro de Veteranos de Malvinas
+   Todas comparten paleta y botones; cambia el tratamiento y la
+   imagen de las islas que protagoniza cada una.
+   ============================================================ */
+
+/* ---------- Botones (compartidos) ---------- */
+.botones {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.btnPrimario {
+  background: var(--celeste-patrio);
+  color: var(--azul-marino);
+}
+.btnPrimario:hover {
+  background: #8bbbe6;
+}
+
+.btnSecundario {
+  background: transparent;
+  border-color: rgba(232, 237, 245, 0.4);
+  color: var(--blanco-texto);
+}
+.btnSecundario:hover {
+  border-color: var(--celeste-patrio);
+  color: var(--celeste-patrio);
+}
+
+/* En fondos claros el botón secundario invierte contraste */
+.sobreClaro .btnSecundario {
+  border-color: rgba(10, 34, 64, 0.35);
+  color: var(--azul-marino);
+}
+.sobreClaro .btnSecundario:hover {
+  border-color: var(--azul-marino);
+  color: var(--azul-marino);
+}
+
+/* ---------- Tipografía compartida ---------- */
+.frase {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  line-height: 1.1;
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  opacity: 0.85;
+  margin: 0 0 2rem;
+  max-width: 620px;
+}
+
+.kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--celeste-patrio);
+  margin: 0 0 1rem;
+}
+
+/* ============================================================
+   0 · MEMORIAL — flagship emotivo, cinematográfico ⭐
+   ============================================================ */
+.memorial {
+  position: relative;
+  min-height: min(86vh, 760px);
+  display: grid;
+  align-items: center;
+  background: var(--azul-muy-oscuro);
+  color: var(--blanco-texto);
+  overflow: hidden;
+  isolation: isolate;
+  /* Oscurecimiento de la imagen (0 = original, 1 = muy oscuro) */
+  --velo: 0.62;
+}
+/* Imagen con lento acercamiento (Ken Burns), levemente oscurecida */
+.memorialImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  z-index: -2;
+  transform: scale(1.12);
+  filter: brightness(0.62) saturate(1.08);
+  animation: kenburns 18s ease-out forwards;
+}
+/* Velo en capas: scrim central tras el texto + vignette + base inferior */
+.memorialVelo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    /* scrim focal: garantiza fondo oscuro justo donde va el texto */
+    radial-gradient(
+      62% 58% at 50% 48%,
+      rgba(4, 17, 31, var(--velo)) 0%,
+      rgba(4, 17, 31, calc(var(--velo) * 0.55)) 55%,
+      transparent 100%
+    ),
+    /* vignette de bordes */
+    radial-gradient(
+      130% 110% at 50% 30%,
+      transparent 45%,
+      rgba(4, 17, 31, 0.7) 100%
+    ),
+    /* base inferior para los botones y la fecha */
+    linear-gradient(
+      to bottom,
+      rgba(4, 17, 31, 0.45) 0%,
+      transparent 30%,
+      transparent 52%,
+      rgba(4, 17, 31, 0.95) 100%
+    );
+  pointer-events: none;
+}
+.memorialInner {
+  text-align: center;
+  max-width: 880px;
+  margin-inline: auto;
+  padding-block: clamp(5rem, 12vw, 8rem);
+}
+/* Kicker con franja patria a los lados */
+.memorialKicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: clamp(0.7rem, 1.6vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--celeste-patrio);
+  margin: 0 0 1.5rem;
+}
+.memorialKicker::before,
+.memorialKicker::after {
+  content: "";
+  width: clamp(20px, 6vw, 48px);
+  height: 3px;
+  background: linear-gradient(
+    to bottom,
+    var(--celeste-patrio) 0 33.33%,
+    rgba(255, 255, 255, 0.9) 33.33% 66.66%,
+    var(--celeste-patrio) 66.66% 100%
+  );
+}
+.memorialFrase {
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.5rem;
+  text-shadow: 0 2px 12px rgba(4, 17, 31, 0.85),
+    0 1px 40px rgba(4, 17, 31, 0.6);
+}
+.memorialFrase em {
+  font-style: normal;
+  color: var(--celeste-patrio);
+}
+.memorialSub {
+  font-size: clamp(1.02rem, 2.2vw, 1.22rem);
+  line-height: 1.7;
+  opacity: 0.95;
+  max-width: 620px;
+  margin: 0 auto 2.25rem;
+  text-shadow: 0 1px 10px rgba(4, 17, 31, 0.9);
+}
+.memorialKicker,
+.memorialFecha {
+  text-shadow: 0 1px 8px rgba(4, 17, 31, 0.8);
+}
+.memorialBotones {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+/* Línea conmemorativa con la fecha */
+.memorialFecha {
+  margin: 2.75rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(232, 237, 245, 0.16);
+  max-width: 540px;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  opacity: 0.7;
+}
+.memorialFecha strong {
+  color: var(--celeste-patrio);
+  font-weight: 700;
+}
+/* Animación de entrada escalonada */
+.reveal > * {
+  opacity: 0;
+  animation: riseIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.reveal > *:nth-child(1) { animation-delay: 0.15s; }
+.reveal > *:nth-child(2) { animation-delay: 0.35s; }
+.reveal > *:nth-child(3) { animation-delay: 0.55s; }
+.reveal > *:nth-child(4) { animation-delay: 0.75s; }
+.reveal > *:nth-child(5) { animation-delay: 0.95s; }
+/* Indicador de scroll */
+.scrollCue {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(232, 237, 245, 0.4);
+  border-radius: 999px;
+  z-index: 1;
+}
+.scrollCue::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  margin-left: -2px;
+  border-radius: 999px;
+  background: var(--celeste-patrio);
+  animation: scrollDot 1.8s ease-in-out infinite;
+}
+
+@keyframes kenburns {
+  to { transform: scale(1); }
+}
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes scrollDot {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+/* Respeto por quienes prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .memorialImg { animation: none; transform: scale(1.04); }
+  .reveal > * { opacity: 1; animation: none; }
+  .scrollCue::after { animation: none; }
+}
+
+/* ============================================================
+   1 · ISLAS — mapa (contorno) a pantalla completa, sobrio ⭐
+   ============================================================ */
+.islas {
+  position: relative;
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+  overflow: hidden;
+}
+.islasImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.5;
+}
+.islasVelo {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      70% 80% at 50% 45%,
+      rgba(10, 34, 64, 0.2),
+      rgba(10, 34, 64, 0.85) 95%
+    ),
+    linear-gradient(to bottom, rgba(4, 17, 31, 0.5), transparent 30%);
+  pointer-events: none;
+}
+.islasInner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 820px;
+  margin-inline: auto;
+  padding-block: clamp(4.5rem, 12vw, 9rem);
+}
+.islas .botones {
+  justify-content: center;
+}
+.islas .sub {
+  margin-inline: auto;
+}
+
+/* ============================================================
+   2 · BANDERA — islas rellenas con la bandera, texto sobre velo
+   ============================================================ */
+.bandera {
+  position: relative;
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+  overflow: hidden;
+}
+.banderaImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.banderaVelo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(4, 17, 31, 0.92) 0%,
+    rgba(4, 17, 31, 0.75) 38%,
+    rgba(4, 17, 31, 0.25) 100%
+  );
+  pointer-events: none;
+}
+.banderaInner {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  padding-block: clamp(4rem, 11vw, 8rem);
+}
+
+/* ============================================================
+   3 · EDITORIAL — claro, tipográfico; el mapa como lámina enmarcada
+   ============================================================ */
+.editorial {
+  background: var(--fondo-claro);
+  color: var(--azul-marino);
+}
+.editorialInner {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  padding-block: clamp(3.5rem, 9vw, 6.5rem);
+}
+.editorialStripe {
+  width: 64px;
+  height: 6px;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(
+    to bottom,
+    var(--celeste-patrio) 0 33.33%,
+    var(--blanco) 33.33% 66.66%,
+    var(--celeste-patrio) 66.66% 100%
+  );
+  border: var(--borde-fino);
+}
+.editorial .frase {
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+}
+.editorial .sub {
+  opacity: 0.72;
+}
+.editorial .kicker {
+  color: #2b6cb0;
+}
+.editorialLamina {
+  border: 1px solid rgba(10, 34, 64, 0.2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(4, 17, 31, 0.18);
+}
+.editorialLamina img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+/* ============================================================
+   4 · COORDENADAS — el mapa como mapa: grilla + datos geográficos
+   ============================================================ */
+.coords {
+  position: relative;
+  background: var(--azul-muy-oscuro);
+  color: var(--blanco-texto);
+  overflow: hidden;
+}
+.coordsGrid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(117, 170, 219, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(117, 170, 219, 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+.coordsInner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding-block: clamp(3.5rem, 9vw, 6.5rem);
+}
+.coordsMapa {
+  position: relative;
+  text-align: center;
+}
+.coordsMapa img {
+  width: min(460px, 100%);
+  border: 1px solid rgba(117, 170, 219, 0.3);
+  border-radius: var(--radius);
+}
+.coordsDato {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  color: var(--celeste-patrio);
+  opacity: 0.85;
+  margin-top: 1rem;
+}
+.coords .botones {
+  justify-content: flex-start;
+}
+
+/* ============================================================
+   5 · SPLIT — texto a la izquierda, bandera flameando enmarcada
+   ============================================================ */
+.split {
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+}
+.splitInner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  padding-block: clamp(3.5rem, 9vw, 6.5rem);
+}
+.splitArte {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(117, 170, 219, 0.35);
+  box-shadow: 0 16px 40px rgba(4, 17, 31, 0.45);
+}
+.splitArte img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 11;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 820px) {
+  .coordsInner,
+  .splitInner,
+  .editorialInner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .coords .botones,
+  .split .botones,
+  .editorial .botones {
+    justify-content: center;
+  }
+  .coordsMapa,
+  .splitArte,
+  .editorialLamina {
+    order: -1;
+  }
+  .editorialStripe {
+    margin-inline: auto;
+  }
+  .bandera .botones {
+    justify-content: flex-start;
+  }
+}

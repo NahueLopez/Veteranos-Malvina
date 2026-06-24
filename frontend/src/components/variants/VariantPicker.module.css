@@ -1,0 +1,101 @@
+/* Selector de variantes reutilizable: flechas laterales sobre el contenido.
+   Herramienta de previsualización — quitar antes de publicar. */
+.wrap {
+  position: relative;
+}
+
+/* Flechas a los costados, centradas verticalmente */
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(117, 170, 219, 0.55);
+  background: rgba(4, 17, 31, 0.55);
+  color: var(--blanco-texto);
+  font-size: 1.4rem;
+  line-height: 1;
+  backdrop-filter: blur(4px);
+  transition: background 0.12s, border-color 0.12s, transform 0.12s;
+}
+.flecha:hover {
+  background: var(--celeste-patrio);
+  border-color: var(--celeste-patrio);
+  color: var(--azul-marino);
+}
+.flecha:active {
+  transform: translateY(-50%) scale(0.94);
+}
+.flechaIzq {
+  left: var(--picker-flecha-inset, clamp(0.5rem, 2vw, 1.25rem));
+}
+.flechaDer {
+  right: var(--picker-flecha-inset, clamp(0.5rem, 2vw, 1.25rem));
+}
+
+/* Etiqueta: qué variante estás viendo */
+.badge {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(4, 17, 31, 0.7);
+  border: 1px solid rgba(117, 170, 219, 0.4);
+  backdrop-filter: blur(4px);
+  font-family: var(--font-base);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--blanco-texto);
+  white-space: nowrap;
+}
+.badgeEtiqueta {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--celeste-patrio);
+}
+.badgeNombre {
+  opacity: 0.9;
+}
+.badgeIndice {
+  opacity: 0.55;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Puntos indicadores */
+.dots {
+  display: flex;
+  gap: 0.3rem;
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(232, 237, 245, 0.35);
+  border: none;
+  padding: 0;
+}
+.dotActivo {
+  background: var(--celeste-patrio);
+}
+
+@media (max-width: 560px) {
+  .flecha {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+  .badge {
+    font-size: 0.66rem;
+  }
+}

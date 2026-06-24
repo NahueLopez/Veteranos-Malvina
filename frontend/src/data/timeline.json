@@ -1,0 +1,123 @@
+[
+  {
+    "id": 1,
+    "fecha": "2 Abr 1982",
+    "fechaCorta": "2 Abr",
+    "titulo": "Operación Rosario — El desembarco",
+    "descripcion": "En la madrugada del 2 de abril, fuerzas argentinas desembarcan en las Islas Malvinas y recuperan el control del archipiélago tras 149 años de ocupación británica. La operación, planificada para minimizar bajas, logra la rendición de la guarnición de Royal Marines sin pérdidas entre los isleños. La noticia desata una movilización popular histórica en todo el país.",
+    "imagenUrl": "",
+    "tag": "Operación Rosario",
+    "tipoTag": "info",
+    "orden": 1
+  },
+  {
+    "id": 2,
+    "fecha": "5 Abr 1982",
+    "fechaCorta": "5 Abr",
+    "titulo": "Zarpa la Task Force británica",
+    "descripcion": "El Reino Unido responde enviando una flota de guerra desde Portsmouth: portaaviones, destructores, submarinos nucleares y miles de soldados que cruzarían el Atlántico rumbo al Sur. Mientras tanto, la diplomacia internacional intentaba sin éxito evitar el choque. La guerra ya era inevitable.",
+    "imagenUrl": "",
+    "tag": "Respuesta británica",
+    "tipoTag": "info",
+    "orden": 2
+  },
+  {
+    "id": 3,
+    "fecha": "1 May 1982",
+    "fechaCorta": "1 May",
+    "titulo": "Comienza la batalla aérea",
+    "descripcion": "El Reino Unido inicia los bombardeos sobre Puerto Argentino. La Fuerza Aérea Argentina y la Aviación Naval responden con operaciones que pondrían a prueba el coraje de pilotos que despegaban desde el continente al límite de su autonomía de combustible. Comienza una de las gestas aéreas más recordadas de la historia militar argentina.",
+    "imagenUrl": "",
+    "tag": "Combate aéreo",
+    "tipoTag": "info",
+    "orden": 3
+  },
+  {
+    "id": 4,
+    "fecha": "2 May 1982",
+    "fechaCorta": "2 May",
+    "titulo": "Hundimiento del Crucero General Belgrano",
+    "descripcion": "El submarino nuclear británico HMS Conqueror torpedea al Crucero ARA General Belgrano fuera de la zona de exclusión. Mueren 323 tripulantes — casi la mitad de todas las bajas argentinas de la guerra. El hundimiento marca para siempre la memoria de la contienda y la de las familias de quienes nunca volvieron.",
+    "imagenUrl": "",
+    "tag": "323 vidas perdidas",
+    "tipoTag": "danger",
+    "orden": 4
+  },
+  {
+    "id": 5,
+    "fecha": "4 May 1982",
+    "fechaCorta": "4 May",
+    "titulo": "Hundimiento del HMS Sheffield",
+    "descripcion": "Un misil Exocet lanzado por la Aviación Naval Argentina impacta al destructor británico HMS Sheffield, uno de los buques más modernos de la flota. La pérdida sacude a la opinión pública británica y demuestra la capacidad de respuesta argentina en el mar.",
+    "imagenUrl": "",
+    "tag": "Misil Exocet",
+    "tipoTag": "info",
+    "orden": 5
+  },
+  {
+    "id": 6,
+    "fecha": "21 May 1982",
+    "fechaCorta": "21 May",
+    "titulo": "Desembarco británico en San Carlos",
+    "descripcion": "Las tropas británicas desembarcan en la Bahía San Carlos, en la Isla Soledad, para iniciar la reconquista por tierra. Durante días, la aviación argentina ataca sin descanso a la flota fondeada en lo que la prensa bautizó «el Callejón de las Bombas», hundiendo varios buques enemigos.",
+    "imagenUrl": "",
+    "tag": "Combate naval y aéreo",
+    "tipoTag": "info",
+    "orden": 6
+  },
+  {
+    "id": 7,
+    "fecha": "25 May 1982",
+    "fechaCorta": "25 May",
+    "titulo": "Día de la Patria en combate",
+    "descripcion": "En pleno Día de la Revolución de Mayo, la aviación argentina hunde al destructor HMS Coventry y al buque de transporte Atlantic Conveyor, que llevaba helicópteros y pertrechos clave para el avance británico. Una de las jornadas más intensas de toda la guerra.",
+    "imagenUrl": "",
+    "tag": "Combate aéreo",
+    "tipoTag": "info",
+    "orden": 7
+  },
+  {
+    "id": 8,
+    "fecha": "28 May 1982",
+    "fechaCorta": "28 May",
+    "titulo": "Batalla de Goose Green (Pradera del Ganso)",
+    "descripcion": "Durante más de un día de combate, las tropas argentinas resisten el avance británico en uno de los enfrentamientos terrestres más duros de la guerra. La defensa, sostenida en su mayoría por soldados conscriptos, se convierte en símbolo del sacrificio y la entereza de quienes pelearon en condiciones extremas.",
+    "imagenUrl": "",
+    "tag": "Combate terrestre",
+    "tipoTag": "info",
+    "orden": 8
+  },
+  {
+    "id": 9,
+    "fecha": "11 Jun 1982",
+    "fechaCorta": "11 Jun",
+    "titulo": "Las batallas de las alturas",
+    "descripcion": "Comienza el asalto final sobre las colinas que rodean Puerto Argentino: Monte Longdon, Dos Hermanas y Monte Harriet. En noches heladas y cuerpo a cuerpo, los soldados argentinos defienden cada metro de terreno frente a un enemigo mejor equipado. El coraje del soldado argentino quedó escrito en esas montañas.",
+    "imagenUrl": "",
+    "tag": "Combate terrestre",
+    "tipoTag": "danger",
+    "orden": 9
+  },
+  {
+    "id": 10,
+    "fecha": "13 Jun 1982",
+    "fechaCorta": "13 Jun",
+    "titulo": "Tumbledown y Wireless Ridge",
+    "descripcion": "Caen las últimas líneas defensivas sobre Puerto Argentino. En Monte Tumbledown y Wireless Ridge se libran los combates finales de la guerra, con una resistencia que se sostuvo hasta agotar las posibilidades. El cerco sobre la capital de las islas estaba cerrado.",
+    "imagenUrl": "",
+    "tag": "Combate terrestre",
+    "tipoTag": "danger",
+    "orden": 10
+  },
+  {
+    "id": 11,
+    "fecha": "14 Jun 1982",
+    "fechaCorta": "14 Jun",
+    "titulo": "El cese del fuego — El regreso",
+    "descripcion": "Tras 74 días de guerra se firma el cese del fuego en Puerto Argentino. Los combatientes inician el regreso al continente. Volvían marcados por la pérdida de sus compañeros y por un silencio que tardaría años en romperse. El reconocimiento a su entrega sería una deuda que la sociedad argentina saldaría con el tiempo.",
+    "imagenUrl": "",
+    "tag": "Cese del fuego",
+    "tipoTag": "info",
+    "orden": 11
+  }
+]

@@ -1,0 +1,108 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 150px;
+  grid-auto-flow: dense;
+  gap: 0.75rem;
+}
+
+.item {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: var(--borde-fino);
+  border-radius: var(--radius);
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+  display: grid;
+  place-items: end start;
+}
+
+/* Tamaños del mosaico */
+.ancho {
+  grid-column: span 2;
+}
+.alto {
+  grid-row: span 2;
+}
+.grande {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.item:hover img {
+  transform: scale(1.05);
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(117, 170, 219, 0.06),
+    rgba(117, 170, 219, 0.06) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.caption {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  background: linear-gradient(transparent, rgba(4, 17, 31, 0.9));
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
+}
+
+.item:hover .caption {
+  opacity: 1;
+}
+
+.desc {
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+.fecha {
+  font-size: 0.68rem;
+  opacity: 0.65;
+}
+
+@media (max-width: 880px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grande {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .ancho,
+  .grande {
+    grid-column: span 1;
+  }
+}

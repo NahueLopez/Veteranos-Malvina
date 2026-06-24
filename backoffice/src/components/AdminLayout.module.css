@@ -1,0 +1,49 @@
+.shell {
+  min-height: 100vh;
+}
+
+.content {
+  margin-left: var(--sidebar-w);
+  min-height: 100vh;
+}
+
+.topbar {
+  background: var(--blanco);
+  border-bottom: var(--borde);
+  padding: 0.9rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar h1 {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--texto-suave);
+  font-weight: 600;
+}
+
+.topbarMarca {
+  font-size: 0.82rem;
+  color: var(--celeste-patrio);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.main {
+  padding: 2rem;
+  max-width: 1100px;
+}
+
+@media (max-width: 720px) {
+  .content {
+    margin-left: 0;
+    padding-top: 64px;
+  }
+  .main {
+    padding: 1.25rem;
+  }
+}

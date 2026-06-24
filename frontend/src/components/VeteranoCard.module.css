@@ -1,0 +1,60 @@
+.card {
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+  border: var(--borde-fino-claro);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bandera {
+  width: 12px;
+  height: 44px;
+  background: linear-gradient(
+    to bottom,
+    var(--celeste-patrio) 0 33.33%,
+    var(--blanco) 33.33% 66.66%,
+    var(--celeste-patrio) 66.66% 100%
+  );
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.iniciales {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(117, 170, 219, 0.18);
+  color: var(--celeste-patrio);
+  font-weight: 700;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.nombre {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.unidad {
+  font-size: 0.82rem;
+  opacity: 0.7;
+  margin: 0.15rem 0 0;
+}
+
+.testimonio {
+  font-style: italic;
+  opacity: 0.92;
+  margin: 0;
+  line-height: 1.65;
+}

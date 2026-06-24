@@ -1,0 +1,131 @@
+.lista {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 880px;
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 8.5rem 2rem 1fr;
+  align-items: start;
+}
+
+.aside {
+  text-align: right;
+  padding-top: 0.05rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.fecha {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--azul-marino);
+  letter-spacing: 0.01em;
+}
+.dia {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--celeste-patrio);
+}
+
+/* Columna central: línea + punto */
+.marcador {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.marcador::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(10, 34, 64, 0.15);
+}
+.fila:first-child .marcador::before {
+  top: 0.5rem;
+}
+.fila:last-child .marcador::before {
+  bottom: auto;
+  height: 0.5rem;
+}
+.punto {
+  position: relative;
+  margin-top: 0.35rem;
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+  background: var(--celeste-patrio);
+  border: 3px solid var(--blanco);
+  box-shadow: 0 0 0 2px var(--celeste-patrio);
+}
+.marcadorDanger .punto {
+  background: var(--danger);
+  box-shadow: 0 0 0 2px var(--danger);
+}
+
+.contenido {
+  padding: 0 0 2.25rem 0.5rem;
+}
+.fila:last-child .contenido {
+  padding-bottom: 0;
+}
+.titulo {
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  margin: 0 0 0.55rem;
+  line-height: 1.25;
+}
+.descripcion {
+  margin: 0 0 1rem;
+  opacity: 0.85;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.28rem 0.65rem;
+  border-radius: var(--radius);
+}
+.tagInfo {
+  background: rgba(117, 170, 219, 0.18);
+  color: var(--azul-marino);
+  border: 1px solid rgba(117, 170, 219, 0.5);
+}
+.tagDanger {
+  background: rgba(155, 34, 38, 0.1);
+  color: var(--danger);
+  border: 1px solid rgba(155, 34, 38, 0.4);
+}
+
+@media (max-width: 640px) {
+  .fila {
+    grid-template-columns: 1.75rem 1fr;
+  }
+  .aside {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    text-align: left;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding-left: 2.25rem;
+    margin-bottom: 0.4rem;
+  }
+  .marcador {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .contenido {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bandera Argentina Flameando 🇦🇷</title>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: radial-gradient(circle at 50% 30%, #1b2b4a 0%, #0a1224 70%, #060a16 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: system-ui, sans-serif;
+  }
+  .escena {
+    display: flex;
+    align-items: stretch;
+  }
+  .mastil {
+    width: 10px;
+    background: linear-gradient(90deg, #b8b8b8, #f2f2f2 40%, #888);
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(0,0,0,.5);
+    margin-right: -2px;
+  }
+  canvas {
+    display: block;
+    filter: drop-shadow(0 14px 28px rgba(0,0,0,.45));
+  }
+  .titulo {
+    position: fixed;
+    bottom: 28px;
+    width: 100%;
+    text-align: center;
+    color: #cdd8ee;
+    letter-spacing: 2px;
+    font-size: 14px;
+    opacity: .7;
+  }
+</style>
+</head>
+<body>
+  <div class="escena">
+    <div class="mastil"></div>
+    <canvas id="flag" width="560" height="360"></canvas>
+  </div>
+  <div class="titulo">🇦🇷 Las Malvinas son argentinas</div>
+
+<script>
+const canvas = document.getElementById('flag');
+const ctx = canvas.getContext('2d');
+const W = canvas.width, H = canvas.height;
+
+// Colores oficiales de la bandera argentina
+const CELESTE = '#74ACDF';
+const BLANCO  = '#FFFFFF';
+const ORO     = '#F6B40E';
+const CARA    = '#85340A'; // marrón del rostro del Sol de Mayo
+
+// --- Sol de Mayo en una capa aparte ---
+const solSize = 130;
+const solCanvas = document.createElement('canvas');
+solCanvas.width = solCanvas.height = solSize;
+dibujarSol(solCanvas.getContext('2d'), solSize);
+
+function dibujarSol(c, size) {
+  const cx = size / 2, cy = size / 2;
+  const rInner = size * 0.18;
+  const rRay   = size * 0.46;
+
+  // 32 rayos, alternando rectos y flamígeros (ondulados)
+  const nRayos = 32;
+  c.save();
+  c.translate(cx, cy);
+  for (let i = 0; i < nRayos; i++) {
+    const ang = (i / nRayos) * Math.PI * 2;
+    c.save();
+    c.rotate(ang);
+    if (i % 2 === 0) {
+      // rayo recto (triangular)
+      c.beginPath();
+      c.moveTo(-size * 0.022, rInner);
+      c.lineTo(0, rRay);
+      c.lineTo(size * 0.022, rInner);
+      c.closePath();
+    } else {
+      // rayo flamígero (ondulado)
+      c.beginPath();
+      c.moveTo(-size * 0.03, rInner);
+      c.quadraticCurveTo(-size * 0.05, rInner + (rRay - rInner) * 0.5, 0, rRay);
+      c.quadraticCurveTo(size * 0.05, rInner + (rRay - rInner) * 0.5, size * 0.03, rInner);
+      c.closePath();
+    }
+    c.fillStyle = ORO;
+    c.fill();
+    c.restore();
+  }
+  c.restore();
+
+  // Disco central
+  c.beginPath();
+  c.arc(cx, cy, rInner, 0, Math.PI * 2);
+  c.fillStyle = ORO;
+  c.fill();
+  c.strokeStyle = CARA;
+  c.lineWidth = size * 0.012;
+  c.stroke();
+
+  // Rostro simple
+  c.strokeStyle = CARA;
+  c.lineWidth = size * 0.014;
+  c.lineCap = 'round';
+  const e = rInner * 0.32; // separación ojos
+  // ojos
+  c.beginPath(); c.arc(cx - e, cy - rInner*0.18, rInner*0.10, 0, Math.PI*2); c.fillStyle = CARA; c.fill();
+  c.beginPath(); c.arc(cx + e, cy - rInner*0.18, rInner*0.10, 0, Math.PI*2); c.fill();
+  // cejas
+  c.beginPath();
+  c.moveTo(cx - e*1.6, cy - rInner*0.42); c.quadraticCurveTo(cx - e, cy - rInner*0.55, cx - e*0.3, cy - rInner*0.42);
+  c.moveTo(cx + e*0.3, cy - rInner*0.42); c.quadraticCurveTo(cx + e, cy - rInner*0.55, cx + e*1.6, cy - rInner*0.42);
+  c.stroke();
+  // nariz
+  c.beginPath();
+  c.moveTo(cx, cy - rInner*0.05); c.lineTo(cx, cy + rInner*0.20);
+  c.stroke();
+  // boca
+  c.beginPath();
+  c.moveTo(cx - e*1.1, cy + rInner*0.42);
+  c.quadraticCurveTo(cx, cy + rInner*0.62, cx + e*1.1, cy + rInner*0.42);
+  c.stroke();
+}
+
+// Pre-render de la bandera plana (3 franjas + sol centrado)
+const flat = document.createElement('canvas');
+flat.width = W; flat.height = H;
+(function renderFlat() {
+  const f = flat.getContext('2d');
+  const franja = H / 3;
+  f.fillStyle = CELESTE; f.fillRect(0, 0, W, franja);
+  f.fillStyle = BLANCO;  f.fillRect(0, franja, W, franja);
+  f.fillStyle = CELESTE; f.fillRect(0, franja * 2, W, franja);
+  f.drawImage(solCanvas, (W - solSize) / 2, (H - solSize) / 2);
+})();
+
+// Animación: dibujar la bandera en columnas, desplazadas por una onda
+let t = 0;
+function frame() {
+  ctx.clearRect(0, 0, W, H);
+  const cols = W;            // 1px por columna para suavidad
+  const amp = 22;            // amplitud de la onda
+  const freq = 0.018;        // frecuencia espacial
+  const speed = 0.09;        // velocidad temporal
+
+  for (let x = 0; x < cols; x++) {
+    // más ondulación a medida que se aleja del mástil
+    const fade = x / cols;
+    const offset = Math.sin(x * freq - t) * amp * (0.25 + fade);
+    // sombreado suave para dar volumen a los pliegues
+    const shade = 0.82 + 0.18 * Math.cos(x * freq - t);
+
+    ctx.globalAlpha = 1;
+    ctx.drawImage(flat, x, 0, 1, H, x, offset, 1, H);
+
+    ctx.globalAlpha = 1 - shade;
+    ctx.fillStyle = shade > 0.92 ? '#ffffff' : '#0a1730';
+    ctx.fillRect(x, offset, 1, H);
+  }
+  ctx.globalAlpha = 1;
+
+  t += speed;
+  requestAnimationFrame(frame);
+}
+frame();
+</script>
+</body>
+</html>

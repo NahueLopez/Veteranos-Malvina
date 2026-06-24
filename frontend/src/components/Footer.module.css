@@ -1,0 +1,70 @@
+.footer {
+  background: var(--azul-muy-oscuro);
+  color: var(--blanco-texto);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  padding-block: 3rem;
+  align-items: start;
+}
+
+.brand {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.banderaVertical {
+  width: 18px;
+  min-height: 70px;
+  align-self: stretch;
+  background: linear-gradient(
+    to bottom,
+    var(--celeste-patrio) 0 33.33%,
+    var(--blanco) 33.33% 66.66%,
+    var(--celeste-patrio) 66.66% 100%
+  );
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.city {
+  opacity: 0.7;
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0;
+}
+
+.lema {
+  font-weight: 700;
+  color: var(--celeste-patrio);
+  letter-spacing: 0.03em;
+  text-align: right;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.bottom {
+  border-top: var(--borde-fino-claro);
+  padding-block: 1.25rem;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+  .lema {
+    text-align: left;
+  }
+}

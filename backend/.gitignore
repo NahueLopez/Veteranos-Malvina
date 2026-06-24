@@ -1,0 +1,8 @@
+bin/
+obj/
+*.user
+
+# Configuración local con secretos (no versionar)
+appsettings.Development.json
+appsettings.Local.json
+.env

@@ -1,0 +1,40 @@
+.muro {
+  columns: 3 260px;
+  column-gap: 1.25rem;
+}
+
+.nota {
+  break-inside: avoid;
+  margin: 0 0 1.25rem;
+  padding: 1.4rem 1.5rem;
+  background: var(--azul-oscuro);
+  border: var(--borde-fino-claro);
+  border-left: 4px solid var(--celeste-patrio);
+  border-radius: var(--radius);
+}
+
+.texto {
+  margin: 0 0 1rem;
+  font-style: italic;
+  line-height: 1.6;
+  opacity: 0.94;
+}
+
+.pie {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.pie strong {
+  font-size: 0.95rem;
+}
+.pie span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.pie small {
+  font-size: 0.78rem;
+  opacity: 0.65;
+}

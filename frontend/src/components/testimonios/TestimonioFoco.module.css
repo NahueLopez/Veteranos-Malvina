@@ -1,0 +1,97 @@
+.contenedor {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 0.85rem;
+  text-align: left;
+  background: transparent;
+  color: var(--blanco-texto);
+  border: var(--borde-fino-claro);
+  border-left: 3px solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.item:hover {
+  background: rgba(117, 170, 219, 0.1);
+}
+.activo {
+  background: rgba(117, 170, 219, 0.16);
+  border-left-width: 3px;
+}
+.item strong {
+  display: block;
+  font-size: 0.92rem;
+}
+.item small {
+  display: block;
+  font-size: 0.72rem;
+  opacity: 0.65;
+}
+
+.iniciales {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(117, 170, 219, 0.18);
+  color: var(--celeste-patrio);
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.detalle {
+  position: relative;
+  margin: 0;
+  padding: 1.5rem 0 0 clamp(1rem, 4vw, 2.5rem);
+}
+
+.comilla {
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--celeste-patrio);
+  opacity: 0.25;
+}
+
+.texto {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.autor {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+@media (max-width: 720px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+  }
+}

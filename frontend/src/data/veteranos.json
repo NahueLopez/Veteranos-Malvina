@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "nombre": "Roberto",
+    "apellido": "Giménez",
+    "unidad": "Regimiento de Infantería 7",
+    "arma": "Ejército",
+    "testimonioCorto": "Teníamos diecinueve años. Pasábamos frío, hambre, miedo. Pero cuando uno mira al de al lado y sabe que está peleando por lo mismo, el miedo se vuelve otra cosa.",
+    "testimonioCompleto": "Teníamos diecinueve años. Pasábamos frío, hambre, miedo. Pero cuando uno mira al de al lado y sabe que está peleando por lo mismo, el miedo se vuelve otra cosa. Volvimos cambiados. Durante años nadie quería escuchar. Hoy cuento esto para que los pibes sepan que estuvimos, que dejamos todo, y que las Malvinas siguen siendo argentinas.",
+    "fotoUrl": "",
+    "fechaNacimiento": "1963-03-12",
+    "activo": true
+  },
+  {
+    "id": 2,
+    "nombre": "Carlos",
+    "apellido": "Domínguez",
+    "unidad": "Aviación Naval — 2.ª Escuadrilla",
+    "arma": "Armada",
+    "testimonioCorto": "Despegábamos sabiendo que el combustible no alcanzaba para volver tranquilos. Pero ahí abajo estaban nuestros compañeros. No se discutía.",
+    "testimonioCompleto": "Despegábamos sabiendo que el combustible no alcanzaba para volver tranquilos. Pero ahí abajo estaban nuestros compañeros. No se discutía. Cada vuelo era una decisión que tomábamos con el corazón antes que con la cabeza. Perdimos amigos. A ellos los llevo conmigo en cada amanecer.",
+    "fotoUrl": "",
+    "fechaNacimiento": "1958-07-30",
+    "activo": true
+  },
+  {
+    "id": 3,
+    "nombre": "Héctor",
+    "apellido": "Sosa",
+    "unidad": "Fuerza Aérea — Grupo 5 de Caza",
+    "arma": "Fuerza Aérea",
+    "testimonioCorto": "Fuimos. Peleamos. Y aunque nos mandaron a perder, nosotros nunca perdimos el honor.",
+    "testimonioCompleto": "Fuimos. Peleamos. Y aunque nos mandaron a perder, nosotros nunca perdimos el honor. La guerra terminó pero algo en nosotros siguió allá, en esa tierra helada. Por eso nos juntamos en el Centro: para no estar solos, para que la memoria no se apague, y para acompañar a las familias de los que no volvieron.",
+    "fotoUrl": "",
+    "fechaNacimiento": "1960-11-05",
+    "activo": true
+  }
+]

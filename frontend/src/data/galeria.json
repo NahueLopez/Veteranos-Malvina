@@ -1,0 +1,8 @@
+[
+  { "id": 1, "url": "", "descripcion": "Desembarco en las islas, abril de 1982", "fecha": "1982-04-02", "categoria": "Histórica" },
+  { "id": 2, "url": "", "descripcion": "Soldados en posición defensiva", "fecha": "1982-05-10", "categoria": "Histórica" },
+  { "id": 3, "url": "", "descripcion": "Acto conmemorativo en Mar del Plata", "fecha": "2025-04-02", "categoria": "Conmemoración" },
+  { "id": 4, "url": "", "descripcion": "Veteranos en la sede del Centro", "fecha": "2025-06-14", "categoria": "Centro" },
+  { "id": 5, "url": "", "descripcion": "Guardia de honor frente al monumento", "fecha": "2025-04-02", "categoria": "Conmemoración" },
+  { "id": 6, "url": "", "descripcion": "Encuentro de camaradas", "fecha": "2025-11-20", "categoria": "Centro" }
+]

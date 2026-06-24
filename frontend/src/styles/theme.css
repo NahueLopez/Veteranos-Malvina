@@ -1,0 +1,31 @@
+/* ============================================================
+   Identidad visual — Centro de Veteranos de Malvinas
+   Paleta patria. No modificar sin acuerdo de diseño.
+   ============================================================ */
+:root {
+  /* Colores */
+  --celeste-patrio: #75aadb;
+  --azul-marino: #0a2240;
+  --azul-oscuro: #0d2847;
+  --azul-muy-oscuro: #04111f;
+  --fondo-claro: #f5f2eb;   /* crema, papel de época */
+  --blanco-texto: #e8edf5;
+  --blanco: #ffffff;
+
+  /* Derivados de uso */
+  --borde-fino: 1px solid rgba(10, 34, 64, 0.12);
+  --borde-fino-claro: 1px solid rgba(232, 237, 245, 0.15);
+  --danger: #9b2226;
+
+  /* Tipografía: sistema, sin Google Fonts */
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+
+  /* Escala / forma */
+  --radius: 2px;
+  --maxw: 1200px;
+  --gutter: clamp(1rem, 4vw, 3rem);
+
+  /* Sombras (mínimas, flat) */
+  --sombra-sutil: 0 1px 2px rgba(4, 17, 31, 0.06);
+}

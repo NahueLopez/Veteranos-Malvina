@@ -1,0 +1,112 @@
+.sidebar {
+  width: var(--sidebar-w);
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 20;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1.25rem 1.25rem;
+  border-bottom: 1px solid rgba(232, 237, 245, 0.12);
+}
+
+.brandMark {
+  width: 12px;
+  height: 30px;
+  background: linear-gradient(
+    to bottom,
+    var(--celeste-patrio) 0 33.33%,
+    var(--blanco) 33.33% 66.66%,
+    var(--celeste-patrio) 66.66% 100%
+  );
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.brandText {
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.2;
+}
+
+.brandText small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.68rem;
+  opacity: 0.65;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.nav {
+  flex: 1;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  overflow-y: auto;
+}
+
+.navGrupo {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.45;
+  padding: 0.9rem 0.75rem 0.3rem;
+}
+
+.link {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  opacity: 0.82;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.link:hover {
+  background: rgba(117, 170, 219, 0.15);
+  opacity: 1;
+}
+
+.linkActivo {
+  background: rgba(117, 170, 219, 0.2);
+  color: var(--celeste-patrio);
+  opacity: 1;
+  font-weight: 600;
+}
+
+.footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(232, 237, 245, 0.12);
+}
+
+.usuario {
+  font-size: 0.82rem;
+  opacity: 0.7;
+  margin: 0 0 0.6rem;
+  word-break: break-all;
+}
+
+.logout {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(232, 237, 245, 0.25);
+  color: var(--blanco-texto);
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.logout:hover {
+  border-color: var(--celeste-patrio);
+  color: var(--celeste-patrio);
+}

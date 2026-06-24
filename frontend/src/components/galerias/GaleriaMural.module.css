@@ -1,0 +1,108 @@
+.mural {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.secundarias {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.foto {
+  position: relative;
+  margin: 0;
+  min-height: 180px;
+  overflow: hidden;
+  border: var(--borde-fino);
+  border-radius: var(--radius);
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+  display: grid;
+  place-items: end start;
+}
+
+.principal {
+  min-height: 100%;
+}
+
+.foto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.foto:hover img {
+  transform: scale(1.04);
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(117, 170, 219, 0.06),
+    rgba(117, 170, 219, 0.06) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.caption {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  background: linear-gradient(transparent, rgba(4, 17, 31, 0.92));
+}
+
+.cat {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--celeste-patrio);
+}
+
+.principal .desc {
+  font-size: 1.05rem;
+}
+
+.desc {
+  font-size: 0.82rem;
+  line-height: 1.25;
+}
+
+.fecha {
+  font-size: 0.68rem;
+  opacity: 0.6;
+}
+
+@media (max-width: 880px) {
+  .mural {
+    grid-template-columns: 1fr;
+  }
+  .principal {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 560px) {
+  .secundarias {
+    grid-template-columns: 1fr;
+  }
+}

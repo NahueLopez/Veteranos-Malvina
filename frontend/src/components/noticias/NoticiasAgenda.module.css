@@ -1,0 +1,121 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  text-align: left;
+}
+
+.agenda {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.evento {
+  display: flex;
+  gap: 1.25rem;
+  background: var(--blanco);
+  border: var(--borde-fino);
+  border-left: 4px solid var(--celeste-patrio);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--sombra-sutil);
+}
+
+.fecha {
+  flex-shrink: 0;
+  width: 64px;
+  text-align: center;
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.4rem;
+  height: fit-content;
+}
+
+.dia {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--celeste-patrio);
+  line-height: 1;
+}
+
+.mes {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+}
+
+.detalle {
+  min-width: 0;
+}
+
+.eventoTitulo {
+  font-size: 1.1rem;
+  margin: 0 0 0.35rem;
+  color: var(--azul-marino);
+}
+
+.eventoDesc {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0 0 0.6rem;
+  color: var(--azul-marino);
+}
+
+.eventoMeta {
+  font-size: 0.8rem;
+  opacity: 0.65;
+  margin: 0;
+  color: var(--azul-marino);
+}
+
+.sep {
+  margin: 0 0.5rem;
+}
+
+.noticias {
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.noticiasTitulo {
+  font-size: 1.05rem;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: var(--borde-fino-claro);
+  color: var(--blanco-texto);
+}
+
+.noticiaItem {
+  padding-block: 0.9rem;
+  border-bottom: var(--borde-fino-claro);
+}
+
+.noticiaItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.noticiaTitulo {
+  font-size: 0.95rem;
+  margin: 0 0 0.25rem;
+  color: var(--blanco-texto);
+}
+
+.noticiaFecha {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin: 0;
+}
+
+@media (max-width: 880px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,190 @@
+.wrap {
+  display: grid;
+  gap: 2.5rem;
+}
+
+/* Vía: línea continua de fondo + estaciones distribuidas encima */
+.via {
+  position: relative;
+  padding: 0.25rem 0 0.5rem;
+}
+
+.riel {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  height: 6px;
+  transform: translateY(-50%);
+  border-radius: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--celeste-patrio) 0 14px,
+    rgba(117, 170, 219, 0.35) 14px 22px
+  );
+}
+
+.estaciones {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.parada {
+  flex: none;
+}
+
+.estacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.disco {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+  background: var(--blanco);
+  color: var(--azul-marino);
+  border: 3px solid var(--celeste-patrio);
+  box-shadow: 0 0 0 4px var(--fondo-claro);
+  transition: transform 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.estacion:hover .disco {
+  transform: translateY(-2px);
+}
+
+.estLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.15;
+}
+.estFecha {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--azul-marino);
+}
+.estDia {
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: var(--celeste-patrio);
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.estacionActiva .disco {
+  background: var(--celeste-patrio);
+  color: var(--blanco);
+  box-shadow: 0 0 0 4px var(--fondo-claro), 0 0 0 7px rgba(117, 170, 219, 0.3);
+  transform: scale(1.08);
+}
+.estacionActiva .estDia {
+  opacity: 1;
+}
+
+.estacionDanger .disco {
+  border-color: var(--danger);
+}
+.estacionDanger.estacionActiva .disco {
+  background: var(--danger);
+  box-shadow: 0 0 0 4px var(--fondo-claro), 0 0 0 7px rgba(155, 34, 38, 0.28);
+}
+.estacionDanger .estDia {
+  color: var(--danger);
+}
+
+/* Detalle (sólo texto; la imagen/color va de fondo en la sección) */
+.detalle {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(2px);
+  border: var(--borde-fino);
+  border-left: 4px solid var(--celeste-patrio);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--sombra-sutil);
+  animation: aparecer 0.35s ease;
+}
+.detalleDanger {
+  border-left-color: var(--danger);
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fecha {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--celeste-patrio);
+  margin: 0 0 0.4rem;
+}
+.titulo {
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  margin: 0 0 0.7rem;
+}
+.descripcion {
+  margin: 0 0 1.1rem;
+  opacity: 0.85;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius);
+}
+.tagInfo {
+  background: rgba(117, 170, 219, 0.18);
+  color: var(--azul-marino);
+  border: 1px solid rgba(117, 170, 219, 0.5);
+}
+.tagDanger {
+  background: rgba(155, 34, 38, 0.1);
+  color: var(--danger);
+  border: 1px solid rgba(155, 34, 38, 0.4);
+}
+
+@media (max-width: 720px) {
+  .detalle {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .estFecha {
+    font-size: 0.64rem;
+  }
+  .disco {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+}

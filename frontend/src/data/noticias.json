@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "titulo": "Acto central por el 2 de Abril en la Plaza de los Héroes",
+    "resumen": "El Centro de Veteranos convoca a la comunidad de Mar del Plata al acto conmemorativo por el Día del Veterano y de los Caídos en la Guerra de Malvinas.",
+    "cuerpo": "El Centro de Veteranos de Guerra de Malvinas de Mar del Plata invita a toda la comunidad al acto central por el Día del Veterano y de los Caídos. La ceremonia incluirá el izamiento de la bandera, una guardia de honor y la lectura de los nombres de los caídos marplatenses.",
+    "fechaPublicacion": "2026-03-25",
+    "tipo": "Noticia",
+    "imagenUrl": "",
+    "publicado": true
+  },
+  {
+    "id": 2,
+    "titulo": "Nueva muestra fotográfica: \"Rostros de Malvinas\"",
+    "resumen": "Inauguramos una muestra con material inédito aportado por los propios veteranos del Centro. Entrada libre y gratuita.",
+    "cuerpo": "Durante todo el mes podrá visitarse la muestra fotográfica \"Rostros de Malvinas\", con imágenes inéditas del archivo personal de los veteranos. La exposición recorre el día a día en las islas, los rostros de la espera y el regreso.",
+    "fechaPublicacion": "2026-04-10",
+    "tipo": "Noticia",
+    "imagenUrl": "",
+    "publicado": true
+  },
+  {
+    "id": 3,
+    "titulo": "Charla en escuelas: llevamos la memoria a las aulas",
+    "resumen": "El programa de visitas educativas suma este año a doce escuelas de la ciudad. Los veteranos comparten su testimonio con las nuevas generaciones.",
+    "cuerpo": "El programa \"La memoria en las aulas\" continúa creciendo. Este año los veteranos del Centro visitarán doce escuelas de Mar del Plata para compartir su testimonio de primera mano con estudiantes de nivel secundario.",
+    "fechaPublicacion": "2026-05-02",
+    "tipo": "Evento",
+    "imagenUrl": "",
+    "publicado": true
+  }
+]

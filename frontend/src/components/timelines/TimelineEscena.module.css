@@ -1,0 +1,226 @@
+.escena {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  min-height: clamp(26rem, 60vh, 36rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: var(--blanco-texto);
+  isolation: isolate;
+}
+
+/* ---- Fondos ---- */
+.fondos {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.fondo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.8s ease;
+  /* Degradado de respaldo cuando el evento no tiene imagen */
+  background-color: var(--azul-marino);
+  background-image: linear-gradient(
+    135deg,
+    var(--azul-oscuro) 0%,
+    var(--azul-muy-oscuro) 100%
+  );
+}
+.fondoDanger {
+  background-image: linear-gradient(135deg, #3a0d0f 0%, var(--azul-muy-oscuro) 75%);
+}
+
+.fondoActivo {
+  opacity: 1;
+  /* Ken Burns: zoom lento mientras está activa */
+  animation: kenburns 9s ease-out forwards;
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.14);
+  }
+}
+
+/* Velo oscuro para legibilidad del texto */
+.velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      90deg,
+      rgba(4, 17, 31, 0.85) 0%,
+      rgba(4, 17, 31, 0.55) 45%,
+      rgba(4, 17, 31, 0.2) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(4, 17, 31, 0.9) 0%,
+      rgba(4, 17, 31, 0.1) 55%
+    );
+}
+
+/* ---- Contenido ---- */
+.contenido {
+  position: relative;
+  max-width: 38rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  padding-bottom: 1rem;
+  animation: subir 0.5s ease;
+}
+
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: baseline;
+  margin: 0 0 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.fecha {
+  color: var(--celeste-patrio);
+}
+.dia {
+  opacity: 0.6;
+}
+
+.titulo {
+  font-size: clamp(1.5rem, 3.6vw, 2.4rem);
+  line-height: 1.12;
+  margin: 0 0 0.9rem;
+  text-shadow: 0 2px 12px rgba(4, 17, 31, 0.5);
+}
+.descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.92;
+  margin: 0 0 1.25rem;
+  text-shadow: 0 1px 8px rgba(4, 17, 31, 0.5);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.32rem 0.75rem;
+  border-radius: var(--radius);
+  backdrop-filter: blur(2px);
+}
+.tagInfo {
+  background: rgba(117, 170, 219, 0.25);
+  color: #d9e8f7;
+  border: 1px solid rgba(117, 170, 219, 0.55);
+}
+.tagDanger {
+  background: rgba(155, 34, 38, 0.35);
+  color: #f3b0b2;
+  border: 1px solid rgba(155, 34, 38, 0.6);
+}
+
+/* ---- Flechas ---- */
+.nav {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  width: 2.6rem;
+  height: 2.6rem;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--blanco-texto);
+  background: rgba(4, 17, 31, 0.45);
+  border: 1px solid rgba(232, 237, 245, 0.35);
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  z-index: 2;
+}
+.nav:hover:not(:disabled) {
+  background: var(--celeste-patrio);
+  color: var(--azul-marino);
+  border-color: var(--celeste-patrio);
+}
+.nav:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.92);
+}
+.nav:disabled {
+  opacity: 0.25;
+}
+.navIzq {
+  left: 1rem;
+}
+.navDer {
+  right: 1rem;
+}
+
+/* ---- Línea de fechas ---- */
+.fechas {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0 clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 3vw, 2rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.fechaTab {
+  background: rgba(232, 237, 245, 0.12);
+  border: 1px solid transparent;
+  color: var(--blanco-texto);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  opacity: 0.7;
+  transition: background 0.15s, opacity 0.15s, border-color 0.15s;
+}
+.fechaTab:hover {
+  opacity: 1;
+  border-color: rgba(117, 170, 219, 0.5);
+}
+.fechaTabActiva {
+  background: var(--celeste-patrio);
+  color: var(--azul-marino);
+  opacity: 1;
+}
+
+@media (max-width: 560px) {
+  .nav {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1.3rem;
+  }
+  .navIzq {
+    left: 0.5rem;
+  }
+  .navDer {
+    right: 0.5rem;
+  }
+}

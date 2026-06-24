@@ -1,0 +1,133 @@
+.hilo {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  max-width: 920px;
+}
+
+/* Línea vertical central */
+.hilo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  margin-left: -1.5px;
+  background: linear-gradient(
+    var(--celeste-patrio),
+    rgba(117, 170, 219, 0.25)
+  );
+  border-radius: 3px;
+}
+
+.item {
+  position: relative;
+  width: 50%;
+  padding: 0 2.5rem 2.5rem;
+  box-sizing: border-box;
+}
+.item:last-child {
+  padding-bottom: 0;
+}
+.izq {
+  left: 0;
+  text-align: right;
+}
+.der {
+  left: 50%;
+}
+
+/* Nodo sobre la línea */
+.nodo {
+  position: absolute;
+  top: 0.35rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--celeste-patrio);
+  border: 3px solid var(--fondo-claro, #f5f2eb);
+  box-shadow: 0 0 0 2px var(--celeste-patrio);
+  z-index: 1;
+}
+.izq .nodo {
+  right: -8px;
+}
+.der .nodo {
+  left: -8px;
+}
+.nodoDanger {
+  background: var(--danger);
+  box-shadow: 0 0 0 2px var(--danger);
+}
+
+.tarjeta {
+  background: var(--blanco);
+  border: var(--borde-fino);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+  box-shadow: var(--sombra-sutil);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tarjeta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(4, 17, 31, 0.1);
+}
+
+.fecha {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--celeste-patrio);
+  margin: 0 0 0.35rem;
+}
+.titulo {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  margin: 0 0 0.6rem;
+}
+.descripcion {
+  margin: 0 0 1rem;
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.28rem 0.65rem;
+  border-radius: var(--radius);
+}
+.tagInfo {
+  background: rgba(117, 170, 219, 0.18);
+  color: var(--azul-marino);
+  border: 1px solid rgba(117, 170, 219, 0.5);
+}
+.tagDanger {
+  background: rgba(155, 34, 38, 0.1);
+  color: var(--danger);
+  border: 1px solid rgba(155, 34, 38, 0.4);
+}
+
+/* Mobile: todo a la derecha de una línea a la izquierda */
+@media (max-width: 720px) {
+  .hilo::before {
+    left: 8px;
+  }
+  .item,
+  .izq,
+  .der {
+    width: 100%;
+    left: 0;
+    text-align: left;
+    padding: 0 0 2rem 2.25rem;
+  }
+  .izq .nodo,
+  .der .nodo {
+    left: 1px;
+    right: auto;
+  }
+}

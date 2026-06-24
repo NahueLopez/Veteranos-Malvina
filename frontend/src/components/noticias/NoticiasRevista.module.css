@@ -1,0 +1,134 @@
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  text-align: left;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--blanco);
+  border: var(--borde-fino);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--sombra-sutil);
+  color: var(--azul-marino);
+}
+
+.tipo {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+}
+
+.tipoNoticia {
+  background: rgba(117, 170, 219, 0.18);
+  color: var(--azul-marino);
+}
+
+.tipoEvento {
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+}
+
+.titulo {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+  color: var(--azul-marino);
+}
+
+.resumen {
+  font-size: 0.92rem;
+  opacity: 0.8;
+  margin: 0 0 0.75rem;
+}
+
+.fecha {
+  font-size: 0.78rem;
+  opacity: 0.55;
+  margin: 0;
+}
+
+.eventosBox {
+  background: var(--azul-marino);
+  color: var(--blanco-texto);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.eventosTitulo {
+  font-size: 1.05rem;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: var(--borde-fino-claro);
+  color: var(--blanco-texto);
+}
+
+.eventoItem {
+  display: flex;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: var(--borde-fino-claro);
+}
+
+.eventoItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.eventoFecha {
+  flex-shrink: 0;
+  width: 52px;
+  text-align: center;
+  background: rgba(117, 170, 219, 0.15);
+  border-radius: var(--radius);
+  padding: 0.4rem;
+  height: fit-content;
+}
+
+.eventoDia {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--celeste-patrio);
+  line-height: 1;
+}
+
+.eventoMes {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+.eventoTitulo {
+  font-size: 0.95rem;
+  margin: 0 0 0.2rem;
+  color: var(--blanco-texto);
+}
+
+.eventoMeta {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin: 0;
+}
+
+@media (max-width: 880px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

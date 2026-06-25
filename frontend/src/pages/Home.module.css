@@ -167,35 +167,46 @@
   pointer-events: none;
 }
 
+/* La foto se ve de fondo a toda la sección, nítida pero tranquila.
+   La legibilidad la maneja el velo de abajo (.tlFondos::after), no el blur. */
 .tlFondo {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
+  transform-origin: center;
   opacity: 0;
-  transform: scale(1.04);
-  transition: opacity 0.7s ease;
+  filter: saturate(0.92);
+  transition: opacity 0.8s ease;
 }
 .tlFondoActivo {
-  opacity: 1;
-  animation: tlDeriva 16s ease-out forwards;
+  opacity: 0.85;
+  animation: tlDeriva 18s ease-out forwards;
 }
 
 @keyframes tlDeriva {
   from {
-    transform: scale(1.04);
+    transform: scale(1.03);
   }
   to {
-    transform: scale(1.12);
+    transform: scale(1.09);
   }
 }
 
-/* Velo crema muy liviano: sólo lo justo para que el texto se lea sobre fotos */
+/* Velo crema en degradado: bien opaco arriba/izquierda (donde están el título
+   y la intro) y se abre hacia abajo/derecha para dejar ver la foto. Mantiene el
+   texto resaltando en primer plano sin tapar la imagen. */
 .tlFondos::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(245, 242, 235, 0.18);
+  background: linear-gradient(
+    120deg,
+    rgba(245, 242, 235, 0.92) 0%,
+    rgba(245, 242, 235, 0.72) 38%,
+    rgba(245, 242, 235, 0.42) 70%,
+    rgba(245, 242, 235, 0.28) 100%
+  );
 }
 
 /* El contenido por encima de la decoración */

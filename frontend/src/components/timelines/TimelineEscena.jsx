@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ordenar, diaDeGuerra } from "./util";
+import { asset } from "../../utils/asset";
 import styles from "./TimelineEscena.module.css";
 
 /**
@@ -33,7 +34,7 @@ export default function TimelineEscena({ eventos = [], activo: activoProp, onAct
             className={`${styles.fondo} ${i === activo ? styles.fondoActivo : ""} ${
               e.tipoTag === "danger" ? styles.fondoDanger : ""
             }`}
-            style={e.imagenUrl ? { backgroundImage: `url(${e.imagenUrl})` } : undefined}
+            style={e.imagenUrl ? { backgroundImage: `url(${asset(e.imagenUrl)})` } : undefined}
           />
         ))}
         <span className={styles.velo} />

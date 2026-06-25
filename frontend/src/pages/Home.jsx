@@ -14,6 +14,7 @@ import veteranos from "../data/veteranos.json";
 import noticias from "../data/noticias.json";
 import eventos from "../data/eventos.json";
 import galeria from "../data/galeria.json";
+import { asset } from "../utils/asset";
 import styles from "./Home.module.css";
 
 // Degradados de respaldo (mientras no haya fotos) — uno distinto por evento,
@@ -27,7 +28,7 @@ const TL_FONDOS = [
 ];
 
 function tlFondoStyle(e, i) {
-  if (e.imagenUrl) return { backgroundImage: `url(${e.imagenUrl})` };
+  if (e.imagenUrl) return { backgroundImage: `url(${asset(e.imagenUrl)})` };
   const grad =
     e.tipoTag === "danger"
       ? "linear-gradient(135deg, #f6e7e4 0%, #e9c8c3 55%, #d9a59f 100%)"
